@@ -12,7 +12,7 @@
 
 **AI-Powered Data Intelligence Platform** — conversational analytics, real-time visualization and predictive modeling.
 
-[🚀 Deploy on Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fabhiraj-ops%2Fdataflow-ai-intelligence-platform) · [🌐 Deploy on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/abhiraj-ops/dataflow-ai-intelligence-platform)
+
 
 </div>
 
