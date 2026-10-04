@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+}
+
+button, input, select, textarea { font: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid rgba(0, 217, 255, 0.9);
+  outline-offset: 2px;
+}
+::selection { color: #0a0a0a; background: #00d9ff; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 999px; background: rgba(255,255,255,.16); background-clip: padding-box; }
+
+@layer components {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.02);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .liquid-glass-neon {
+    background: rgba(255, 255, 255, 0.02);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .data-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .data-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .glow-text {
+    background: linear-gradient(135deg, #00d9ff, #d946ef, #ff006e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  .data-grid {
+    display: grid;
+    gap: 1.5rem;
+    animation: fade-in 0.6s ease-out;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .input-glass {
+    @apply w-full rounded-xl border border-white/10 bg-black/30 px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 transition focus:border-neon-cyan/60 focus:outline-none focus:ring-2 focus:ring-neon-cyan/10;
+  }
+  .label { @apply mb-1.5 block text-xs font-medium tracking-wide text-white/55; }
+  .data-table { @apply w-full border-collapse text-left text-sm; }
+  .data-table thead { @apply border-b border-white/10 bg-white/[0.025]; }
+  .data-table th { @apply px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/40; }
+  .data-table td { @apply border-b border-white/[0.06] px-4 py-3 text-white/70 font-mono text-[13px]; }
+  .data-table tbody tr { @apply transition-colors hover:bg-white/[0.025]; }
+  .eyebrow { @apply text-[10px] font-semibold uppercase tracking-[0.22em] text-neon-cyan/80 font-heading; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-white/70 transition hover:border-neon-cyan/40 hover:text-white; }
+}
+
+.bg-grid {
+  background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+.recharts-cartesian-axis-tick-value { fill: rgba(255,255,255,.4); font-size: 11px; font-family: 'JetBrains Mono', monospace; }
+.recharts-tooltip-wrapper:focus-visible { outline: none; }
+
+@media print {
+  .no-print { display: none !important; }
+}
